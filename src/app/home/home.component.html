@@ -1,0 +1,251 @@
+<div class="bg-image container-fluid init bg-5 p-5 text-center" id="day_night">
+  <div class="container-fluid" id="auto-box" (click)="hiddeAutoBox()">
+    <div class="row d-block justify-content-center">
+      <h1 class="text-white page-title">{{ "HOME.TITLE" | translate }}</h1>
+      <h3 class="text-white page-subtitle pb-5">
+        {{ "HOME.SUBTITLE" | translate }}
+      </h3>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="justify-content-center">
+        <h4 class="text-white d-block userReq">
+          {{ "HOME.ENTERCITY" | translate }}
+        </h4>
+
+        <div class="d-inline d-flex px-2">
+          <mat-form-field appearance="outline" class="">
+            <i matPrefix class="my-auto pl-1 fas fa-search"></i>
+            <input  type="text"
+                    placeholder="Halifax, ca"
+                    matInput
+                    [(ngModel)]="input"
+                    (keyup)="autoComplete()" 
+                    (keyup.enter)="getWeatherInfo()" 
+                    [ngModelOptions]="{standalone: true}"
+                    [matAutocomplete]="auto"
+                    class="input-city"
+                  >
+
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let city of matchedCities; let i = index" [value]='city.name +", "+city.country'>
+                <div (click)="setcity(city)" (keyup.enter)="setcity(city)" (keyup.tab)="setcity(city)">{{ city.name }},
+                  {{ city.country }}</div>
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+          <button class="d-inline ml-3 px-3 btn btn-primary" id="dark-light" (click)="getWeatherInfo()"
+            (keyup.enter)="getWeatherInfo()">{{ "HOME.BUTTON" | translate }}</button>
+        </div>
+
+        <!--        <div class="d-inline d-flex">
+          <input
+            class="d-inline input-city"
+            type="text"
+            size="23"
+            [(ngModel)]="input"
+            placeholder="Halifax, ca"
+            (keyup.enter)="getWeatherInfo()"
+            (keyup)="autoComplete()"
+            (keyup.arrowdown)="callOtherfunc($event)"
+            (keyup.arrowup)="callOtherfunc($event)"
+          />
+          <button
+            class="d-inline ml-3 px-3 btn btn-primary"
+            id="dark-light"
+            (click)="getWeatherInfo()"
+          >
+            {{ "HOME.BUTTON" | translate }}
+          </button>
+
+        </div>
+        <div *ngIf="matchedCities.length" class="autocomplete-container">
+          <div
+            class="selected autocomplete d-block my-auto d-flex"
+            (click)="setcity(city)"
+            (keyup.enter)="setcity(city)"
+            (keyup.Tab)="setcity(city)"
+            (keyup.Arrowup)="setcity(city)"
+            (keyup.Arrowdown)="setcity(city)"
+            id="auto-search"
+            *ngFor="let city of matchedCities;"
+          >
+            {{ city.name }}, {{ city.country}}
+        </div>
+        </div> -->
+        <small class="d-block py-1 text-danger text-center" *ngIf="error">{{
+          "HOME.EMPTYSTR" | translate
+        }}</small>
+        <small class="d-block py-1 text-danger text-center" *ngIf="error2">{{
+          "HOME.EMPTYSTR2" | translate
+        }}</small>
+      </div>
+    </div>
+
+    <div class="container-fluid big-card-bg text-white margin" *ngIf="displayInfo">
+      <div
+        class="row d-inline d-flex justify-content-center justify-content-sm-around justify-content-md-between justify-content-lg-between justify-content-xl-around">
+        <div class="d-inline-block my-auto">
+          <span class="d-block city-country">{{ weather.city_name }}, {{ weather.country }}</span>
+          <span class="d-block date pt-3">{{
+            weather.current_local_date | date: "EEE MMM d, y, HH:mm"
+          }}</span>
+        </div>
+
+        <div class="d-inline-block">
+          <img class="d-inline" src="https://openweathermap.org/img/wn/{{ weather.icon }}@2x.png" alt="weather" />
+          <span class="main_description">{{ weather.short_climate_desc }},
+          </span>
+          <span class="detailed_description">{{
+            weather.detail_climate_desc
+          }}</span>
+        </div>
+      </div>
+
+      <div class="row justify-content-center text-center" *ngIf="weather">
+        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-12 col-xs-12 pt-3">
+          <div class="card text-center small-cards-bg">
+            <div class="card-body text-white">
+              <h6 class="card-title">{{ "HOME.TEMP" | translate }}</h6>
+              <h2 class="card-text" *ngIf="weather; else elseBlock">
+                {{ weather.temperature }}°<span class="card-units">C</span>
+              </h2>
+              <ng-template #elseBlock>
+                <h3 class="card-text">-</h3>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-12 col-xs-12 pt-3">
+          <div class="card text-center small-cards-bg">
+            <div class="card-body text-white">
+              <h6 class="card-title d-block">{{ "HOME.WIND" | translate }}</h6>
+              <h2 class="card-text d-inline" *ngIf="weather.wind_speed; else elseBlock">
+                {{ weather.wind_speed }}
+              </h2>
+              <div class="d-inline-block card-units-wind">
+                <span class="d-block">{{ weather.wind_direction }}</span>
+                <span class="d-block">km/h</span>
+              </div>
+              <ng-template #elseBlock>
+                <h3 class="card-text">-</h3>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-12 col-xs-12 d-none d-sm-block pt-3">
+          <div class="card text-center small-cards-bg">
+            <div class="card-body text-white">
+              <h6 class="card-title">{{ "HOME.HUMIDITY" | translate }}</h6>
+              <h3 class="card-text" *ngIf="weather.humidity; else elseBlock">
+                {{ weather.humidity }}<span class="card-units">%</span>
+              </h3>
+              <ng-template #elseBlock>
+                <h3 class="card-text">-</h3>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center text-center" *ngIf="weather">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 d-none d-sm-block pt-3">
+          <div class="card text-center small-cards-bg">
+            <div class="card-body text-white">
+              <h6 class="card-title">{{ "HOME.FEELS_LIKE" | translate }}</h6>
+              <h3 class="card-text" *ngIf="
+                  weather.feels_like >= 0 || weather.feels_like < 0;
+                  else elseBlock
+                ">
+                {{ weather.feels_like }}°<span class="card-units">C</span>
+              </h3>
+              <ng-template #elseBlock>
+                <h3 class="card-text">-</h3>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-xs-12 d-none d-sm-block pt-3">
+          <div class="card text-center small-cards-bg">
+            <div class="card-body text-white">
+              <h6 class="card-title">{{ "HOME.PRESSURE" | translate }}</h6>
+              <h3 class="card-text" *ngIf="weather.pressure; else elseBlock">
+                {{ weather.pressure }}<span class="card-units"> hPa</span>
+              </h3>
+              <ng-template #elseBlock>
+                <h3 class="card-text">-</h3>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+
+        <div class="size col-xl-3 col-lg-4 col-md-12 col-sm-12 col-xs-12 d-none d-sm-block pt-3">
+          <div class="card text-center small-cards-bg">
+            <div class="card-body text-white">
+              <h6 class="card-title">Min - Max</h6>
+              <h3 class="card-text" *ngIf="
+                  weather.min >= 0 ||
+                  weather.min < 0 ||
+                  weather.min >= 0 ||
+                  weather.min < 0
+                ">
+                {{ weather.min }}°<span class="card-units"> -</span>
+                {{ weather.max }}°<span class="card-units"></span>
+              </h3>
+              <ng-template #elseBlock>
+                <h3 class="card-text">-</h3>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center text-center">
+        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-12 col-xs-12 d-none d-sm-block pt-3">
+          <div class="card text-center small-cards-bg">
+            <div class="card-body text-white">
+              <h6 class="card-title">{{ "HOME.VISIBILITY" | translate }}</h6>
+              <h3 class="card-text" *ngIf="weather.visibility; else elseBlock">
+                {{ weather.visibility }}<span class="card-units">km</span>
+              </h3>
+              <ng-template #elseBlock>
+                <h3 class="card-text">-</h3>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-12 col-xs-12 d-none d-sm-block pt-3">
+          <div class="card text-center small-cards-bg">
+            <div class="card-body text-white">
+              <h6 class="card-title">{{ "HOME.SUNRISE" | translate }}</h6>
+              <h3 class="card-text" *ngIf="weather.sunrise">
+                {{ weather.sunrise | date: "HH:mm" }}
+              </h3>
+              <ng-template #elseBlock>
+                <h3 class="card-text">-</h3>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-12 col-xs-12 d-none d-sm-block pt-3">
+          <div class="card text-center small-cards-bg">
+            <div class="card-body text-white">
+              <h6 class="card-title">{{ "HOME.SUNSET" | translate }}</h6>
+              <h3 class="card-text" *ngIf="weather.sunset">
+                {{ weather.sunset | date: "HH:mm" }}
+              </h3>
+              <ng-template #elseBlock>
+                <h3 class="card-text">-</h3>
+              </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

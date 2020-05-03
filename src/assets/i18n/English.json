@@ -1,0 +1,23 @@
+{
+    "HOME": {
+        "TITLE": "This is the Weather app!",
+        "SUBTITLE": "The forecast you trust",
+        "ENTERCITY": "Please enter a city name",
+        "BUTTON": "Send",
+        "ERROR": "",
+        "TEMP": "Temperature",
+        "WIND": "Wind",
+        "HUMIDITY": "Humidity",
+        "FEELS_LIKE": "Feels Like",
+        "PRESSURE": "Pressure",
+        "VISIBILITY": "Visibility",
+        "SUNRISE": "Sunrise",
+        "SUNSET": "Sunset",
+        "SELECT": "Select Language",
+        "EMPTYSTR": "Enter city name followed by comma and the country. Ex.: New York, us",
+        "EMPTYSTR2": "Wrong city, try again",
+        "LINK_1": "I created this website to practice and display some of my web developer skills. Angular, bootstrap, javascript and Api, are some of the technologies I used to build it. Weather-App it is mobile friendly and has English as default language. At loading time, the app gets user’s current location and display it. If the country accessing the site has Portuguese as native language, the page will load in that language. You can choose between English and Portuguese. Background it is also dynamic, changing to night if current time has passed sunset and before sunrise. I hope you like! If you have a feedback, please send me an e-mail.",
+        "LOCATION": "Location",
+        "LOCALTIME": "Local Time: "
+    }
+}

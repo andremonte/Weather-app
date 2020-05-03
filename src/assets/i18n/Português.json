@@ -1,0 +1,23 @@
+{
+    "HOME": {
+        "TITLE": "Este é o aplicativo do tempo!",
+        "SUBTITLE": "A previsão que você confia",
+        "ENTERCITY": "Por favor digite uma cidade",
+        "BUTTON": "Enviar",
+        "ERROR": "",
+        "TEMP": "Temperatura",
+        "WIND": "Vento",
+        "HUMIDITY": "Humidade",
+        "FEELS_LIKE": "Sensação Térmica",
+        "PRESSURE": "Pressão",
+        "VISIBILITY": "Visibilidade",
+        "SUNRISE": "Amanhecer",
+        "Sunset": "Anoitecer",
+        "SELECT": "Seleciona idioma",
+        "EMPTYSTR": "Digite uma cidade seguida de uma vírgula e a sigla do país. Ex.: New York, us",
+        "EMPTYSTR2": "Cidade errada, tente novamente",
+        "LINK_1": "Este site foi desenvolvido com o intuito de praticar e mostrar alguns conhecimentos em programação web. Angular, bootstrap, javascript e duas Api foram usadas na criação deste projeto. Weather-App é responsivo tanto para desktops quanto mobile. A língua padrão é o inglês. Durante o carregamento da página a previsão do tempo é mostrada de acordo com a atual localização do usuário. Se o idioma do usuário for português, a página será carregada em nesta língua, caso contrário será apresentada em inglês. A imagem de fundo é dinâmica e é modificada de acordo com a hora do pôr e nascer do sol. Aproveite! E se tiver algum comentário, por favor, me encaminhe por e-mail.",
+        "LOCATION": "Localização",
+        "LOCALTIME": "Hora local: "
+    }
+}

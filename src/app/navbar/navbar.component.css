@@ -1,0 +1,38 @@
+.bg-darkblue {
+  background-color: #05396C;
+  }
+
+  .navbarFontColor {
+  color: #B3CDE0;
+  }
+
+  .brand-name {
+    font-size: 28px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 400;
+    cursor: pointer;
+  }
+
+  a {
+    color: #B3CDE0;
+  }
+
+  a:hover {
+  color: white;
+  text-decoration: none;
+  }
+
+  .cust-drop {
+    background-color: rgb(51, 76, 105);
+    cursor: default;
+    color: white
+  }
+
+  .dropdown-item {
+    color:white;
+  }
+
+  .cust-drop .dropdown-item:hover {
+    color:white;
+    background-color: rgb(49, 120, 226);
+  }

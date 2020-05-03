@@ -1,0 +1,53 @@
+.footer {
+  background: #05396C;
+}
+.brand-title {
+  font-size: 30px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 400;
+  color: #B3CDE0;
+}
+.title {
+  color: #B3CDE0;
+}
+
+.sub-title {
+  color: yellow;
+}
+
+a, li {
+color: yellow;
+}
+
+a:hover {
+  color: white;
+}
+
+h4 {
+  color: #A4C3B2;
+}
+
+span{
+  color: #035B96;
+}
+
+.creator {
+  color: yellowgreen;
+}
+
+.social {
+  padding-top:11px;
+  color:white;
+  cursor: pointer;
+}
+.social:hover {
+  color: #05396C;
+  background-color: white;
+  border-radius: 10px;
+}
+
+@media (max-width: 480px) {
+  .decrease-pading {
+    padding: 13px !important;
+  }
+}

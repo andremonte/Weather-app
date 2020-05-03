@@ -1,0 +1,236 @@
+.init {
+  min-height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)),
+  url(../../assets/images/init.jpeg);
+/*   background-image: url(../../assets/images/pink.jpeg); */
+/*   background-image: linear-gradient(to bottom, #05478f, black); */
+  padding:25px;
+  background-size: cover;
+}
+
+.day {
+  min-height: 100vh;
+  background-image: url(../../assets/images/blue-sky.jpeg);
+  padding:25px;
+  background-size: cover;
+}
+
+.night {
+  min-height: 100vh;
+  background-image: url(../../assets/images/night.jpeg);
+  padding:25px;
+  background-size: cover;
+}
+
+.page-title {
+  font-size: 50px;
+  font-family: 'Kreon', serif;
+  font-size: 700;
+}
+
+.page-subtitle {
+  font-size: 30px;
+  font-family: 'Kreon', serif;
+  font-size: 700;
+}
+
+.userReq {
+  font-size: 18px;
+  font-family: 'Kreon', serif;
+  font-size: 700;
+}
+
+button {
+  color: #F6FFF8;
+}
+
+.hint {
+  font-size: 16px;
+}
+
+/* .big-card-bg {
+  border: 1px solid black;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6))
+} */
+
+.city-country {
+  font-family: 'montseratt', sans-serif;
+  color:#FFF;
+  font-size: 30px;
+  font-weight: 500;
+  text-align: center;
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+}
+
+.date {
+  font-family: 'Kanit', sans-serif;
+  color: yellow;
+  font-size: 21px;
+  font-weight: 300;
+  font-style: italic;
+  text-align: center;
+}
+
+.main_description {
+  font-family: 'Kanit', sans-serif;
+  font-size: 26px;
+  font-weight: 300;
+  color: yellow;
+}
+
+.detailed_description {
+  font-family: 'Kanit', sans-serif;
+  font-size: 22px;
+  font-weight: 300;
+}
+
+hr {
+  display:block;
+  width: 100%;
+  background-color:yellowgreen;
+  height: 0.1px;
+}
+
+.small-cards-bg {
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6))
+}
+
+.card {
+  border-radius: 16px;
+  box-shadow: 3px 4px rgba(0, 0, 0, 0.3);
+  min-height: 150px;
+  max-height: 150px;
+  max-width: 100%;
+}
+
+.margin {
+  margin-top: 65px;
+}
+
+ .card-title {
+  font-family: 'Kanit', sans-serif;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 21px;
+  line-height: 20px;
+}
+
+.card-text {
+  font-family: 'Kanit', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 52px;
+
+}
+
+.card-units {
+  font-family: 'Kanit', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.card-units-wind {
+  font-family: 'Kanit', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+  padding-left: 3px;
+
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  padding-left: 3px;
+  opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  padding-left: 3px;
+  opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  padding-left: 3px;
+
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+  padding-left: 3px;
+
+}
+
+::placeholder { /* Most modern browsers support this now. */
+  padding-left: 3px;
+}
+
+@media (max-width: 480px) {
+  button {
+  height: 50px;
+  margin-top: auto;
+  margin-bottom: auto;
+  }
+  .input-city {
+    padding: 3px;
+  }
+}
+
+input {
+    font-size: 16px;
+    text-indent: 1px;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex {
+  background-color: white;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: white;
+}
+
+::ng-deep .mat-form-field-infix {
+  border: none; 
+}
+
+::ng-depp .mat-form-field-appearance-outline .mat-form-field-wrapper {
+  margin: 0;
+  padding: 0;
+border-radius: 50%;
+}
+
+.autocomplete {
+  color:black;
+  background-color: white;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 3px;
+  font-size: 15px;
+  line-height: 33px;
+}
+
+/* //input outline color */
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    color: white!important;
+    opacity: 1!important;
+}
+
+/* //mat-input focused color */
+::ng-deep .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: white!important;
+}
+
+/* // mat-input carent color */
+::ng-deep .mat-input-element {
+    caret-color: blue!important;
+    margin-left: 10px!important;
+}
+
+.mat-option.mat-active {
+  background: #05396C;
+  color:white;
+}
+
+.mat-option:hover:not(.mat-option-disabled):hover {
+  background: #05396C;
+  color:white;
+} 

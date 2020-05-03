@@ -1,0 +1,11 @@
+<nav class="navbar navbarFontColor bg-darkblue justify-content-between">
+  <a class="navbar-brand mb-0 brand-name" (click)="refreshPage()">Weather App</a>
+  <div class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="" data-toggle="dropdown" aria-expanded="false">
+      {{ 'HOME.SELECT' | translate }}
+    </a>
+    <ul #langSelect (change)="translate.use(langSelect.value)" class="cust-drop dropdown-menu">
+      <li class="dropdown-item white-text" *ngFor="let lang of translate.getLangs()" (click)="switchLanguage(lang)">{{ lang }}</li>
+    </ul>
+  </div>
+</nav>
