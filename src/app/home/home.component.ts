@@ -4,16 +4,6 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {FormControl} from '@angular/forms';
 
 
-/**
- * @title Simple autocomplete
- */
-
-
-/* export enum KEY_CODE {
-  UP_ARROW = 38,
-  DOWN_ARROW = 40
-} */
-
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -24,20 +14,6 @@ export class HomeComponent implements OnInit {
   @Input('lang') language: string;
   @Output() initialLanguage = new EventEmitter();
 
-/*   @HostListener('window:keyup', ['$event'])
-  keyEvent(event: KeyboardEvent) {
-    console.log(event);
-    let i = 0;
-    if (event.keyCode === KEY_CODE.UP_ARROW) {
-      this.matchedCities[i--];
-    }
-
-    if (event.keyCode === KEY_CODE.DOWN_ARROW) {
-      this.matchedCities[i++];
-    }
-  } */
-  myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
   decobomba = 'ANDRE MACHADO DO MONTE'; 
   weather: Weather = new Weather();
   input: string = "";
@@ -46,7 +22,6 @@ export class HomeComponent implements OnInit {
   error2: boolean = false;
   matchedCities: { name: string, country: string }[] = [];
   cities: { name: string, country: string }[] = [];
-
 
 
   constructor(private weatherService: WeatherService) { }
@@ -86,7 +61,9 @@ getName(city): string {
       this.matchedCities = [];
     }
   }
-
+andre() {
+  alert();
+}
   setcity(param: any) {
     this.matchedCities = [];
     this.input = param.name + ', ' + param.country;

@@ -25,16 +25,22 @@
                     [ngModelOptions]="{standalone: true}"
                     [matAutocomplete]="auto"
                     class="input-city d-inline my-auto"
+                    
                   >
             <mat-autocomplete #auto="matAutocomplete">
-              <mat-option *ngFor="let city of matchedCities; let i = index" [value]='city.name +", "+city.country'>
-                <div (click)="setcity(city)" (keyup.enter)="setcity(city)" (keyup.tab)="setcity(city)">{{ city.name }},
-                  {{ city.country }}</div>
+              <mat-option  *ngFor="let city of matchedCities; let i = index" [value]='city.name +", "+city.country'>
+                <div
+                    (click)="setcity(city)"
+                    (keyup.enter)="setcity(city)"
+                    (keyup.Tab)="setcity(city)"
+                  >
+                  {{ city.name }}, {{ city.country }}
+                </div>
               </mat-option>
             </mat-autocomplete>
           </mat-form-field>
           <button class="ml-3 my-auto px-3 py-2 btn btn-primary" id="dark-light" (click)="getWeatherInfo()"
-            (keyup.enter)="getWeatherInfo()">{{ "HOME.BUTTON" | translate }}</button>
+            >{{ "HOME.BUTTON" | translate }}</button>
         </div>
 
         <!--        <div class="d-inline d-flex">
