@@ -12,37 +12,25 @@
         <h4 class="text-white d-block userReq">
           {{ "HOME.ENTERCITY" | translate }}
         </h4>
-
-        <div class="d-inline-flex">
-          <mat-form-field appearance="outline" class="pt-4">
-            <i matPrefix class="pl-1 fas fa-search"></i>
-            <input  type="text"
-                    placeholder="Halifax, ca"
-                    matInput
-                    [(ngModel)]="input"
-                    (keyup)="autoComplete()" 
-                    (keyup.enter)="getWeatherInfo()" 
-                    [ngModelOptions]="{standalone: true}"
-                    [matAutocomplete]="auto"
-                    class="input-city d-inline my-auto"
-                    
-                  >
-            <mat-autocomplete #auto="matAutocomplete">
-              <mat-option  *ngFor="let city of matchedCities; let i = index" [value]='city.name +", "+city.country'>
-                <div
-                    (click)="setcity(city)"
-                    (keyup.enter)="setcity(city)"
-                    (keyup.Tab)="setcity(city)"
-                  >
-                  {{ city.name }}, {{ city.country }}
-                </div>
-              </mat-option>
-            </mat-autocomplete>
-          </mat-form-field>
-          <button class="ml-3 my-auto px-3 py-2 btn btn-primary" id="dark-light" (click)="getWeatherInfo()"
-            >{{ "HOME.BUTTON" | translate }}</button>
-        </div>
-
+        <form action="" (submit)="getWeatherInfo()">
+          <div class="d-inline-flex">
+            <mat-form-field appearance="outline" class="pt-4">
+              <i matPrefix class="pl-1 fas fa-search"></i>
+              <input type="text" placeholder="Halifax, ca" matInput [(ngModel)]="input" (keyup)="autoComplete()"
+                [ngModelOptions]="{standalone: true}" [matAutocomplete]="auto"
+                class="input-city d-inline my-auto">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngFor="let city of matchedCities; let i = index" [value]='city.name +", "+city.country'>
+                  <div (click)="setcity(city)" (keyup.enter)="setcity(city)" (keyup.tab)="setcity(city)">
+                    {{ city.name }}, {{ city.country }}
+                  </div>
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+            <button class="ml-3 my-auto px-3 py-2 btn btn-primary" id="dark-light"
+              (click)="getWeatherInfo()">{{ "HOME.BUTTON" | translate }}</button>
+          </div>
+        </form>
         <!--        <div class="d-inline d-flex">
           <input
             class="d-inline input-city"
