@@ -26,6 +26,7 @@
   font-size: 50px;
   font-family: 'Kreon', serif;
   font-size: 700;
+  line-height: 38px;
 }
 
 .page-subtitle {
@@ -164,14 +165,17 @@ hr {
   padding-left: 3px;
 }
 
-@media (max-width: 480px) {
+ @media (max-width: 480px) {
   button {
-  height: 50px;
-  margin-top: auto;
-  margin-bottom: auto;
+    padding:14px 
   }
   .input-city {
     padding: 3px;
+  }
+  i {
+    font-size: 16px;
+    color: rgb(148, 147, 147);
+    font-weight: bold;
   }
 }
 
@@ -234,3 +238,12 @@ border-radius: 50%;
   background: #05396C;
   color:white;
 } 
+
+::ng-deep .mat-form-field-prefix, .mat-form-field-suffix {
+  position: unset!important;
+}
+
+i {
+  color: rgb(148, 147, 147);
+  font-weight: bold;
+}
