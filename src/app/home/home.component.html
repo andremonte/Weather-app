@@ -21,12 +21,11 @@
                     matInput
                     [(ngModel)]="input"
                     (keyup)="autoComplete()"
-
                     [ngModelOptions]="{standalone: true}"
                     [matAutocomplete]="auto"
                     class="input-city d-inline my-auto"
                   >
-            <mat-autocomplete #auto="matAutocomplete">
+            <mat-autocomplete #auto="matAutocomplete" autoActiveFirstOption="true">
               <mat-option  *ngFor="let city of matchedCities; let i = index" [value]='city.name +", "+city.country'>
                 <div
                     (click)="setcity(city)"
