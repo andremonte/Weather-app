@@ -1,7 +1,6 @@
 import { Weather } from '../models/weather.model';
 import { WeatherService } from '../weather-service/weather.service';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import {FormControl} from '@angular/forms';
 
 
 @Component({
@@ -14,7 +13,6 @@ export class HomeComponent implements OnInit {
   @Input('lang') language: string;
   @Output() initialLanguage = new EventEmitter();
 
-  decobomba = 'ANDRE MACHADO DO MONTE'; 
   weather: Weather = new Weather();
   input: string = "";
   displayInfo: boolean;
@@ -31,22 +29,14 @@ export class HomeComponent implements OnInit {
     this.getGeoLocation();
     this.getAll();
   }
-getName(city): string {
-  return city.name + ',' + city.country;
-}
+
+  getName(city): string {
+    return city.name + ',' + city.country;
+  }
   getAll() {
     this.weatherService.getAllCities().subscribe(data => {
       this.cities = data;
     })
-  }
-
-  callOtherfunc(event: any) {
-    if (event.key === 'ArrowDown') {
-      console.log('larissa DOWN')
-    }
-    else if (event.key === 'ArrowUp') {
-      console.log('Ronaldo UP')
-    }
   }
 
   autoComplete() {
@@ -56,14 +46,12 @@ getName(city): string {
       })
       console.log(this.matchedCities);
     }
-     if (this.input.length < 1) {
+    if (this.input.length < 1) {
       console.log('Apagou array');
       this.matchedCities = [];
     }
   }
-andre() {
-  alert();
-}
+
   setcity(param: any) {
     this.matchedCities = [];
     this.input = param.name + ', ' + param.country;

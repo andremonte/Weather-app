@@ -167,7 +167,7 @@ hr {
 
  @media (max-width: 480px) {
   button {
-    padding:14px 
+    padding:14px
   }
   .input-city {
     padding: 3px;
@@ -193,7 +193,7 @@ input {
 }
 
 ::ng-deep .mat-form-field-infix {
-  border: none; 
+  border: none;
 }
 
 ::ng-depp .mat-form-field-appearance-outline .mat-form-field-wrapper {
@@ -237,7 +237,7 @@ border-radius: 50%;
 .mat-option:hover:not(.mat-option-disabled):hover {
   background: #05396C;
   color:white;
-} 
+}
 
 ::ng-deep .mat-form-field-prefix, .mat-form-field-suffix {
   position: unset!important;
