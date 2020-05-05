@@ -30,9 +30,6 @@ export class HomeComponent implements OnInit {
     this.getAll();
   }
 
-  getName(city): string {
-    return city.name + ',' + city.country;
-  }
   getAll() {
     this.weatherService.getAllCities().subscribe(data => {
       this.cities = data;
@@ -55,11 +52,6 @@ export class HomeComponent implements OnInit {
   setcity(param: any) {
     this.matchedCities = [];
     this.input = param.name + ', ' + param.country;
-  }
-
-  move(arr: { name: string, country: string }, direction: string) {
-    alert('arrow ' + direction);
-    console.log(arr.name + '' + arr.country);
   }
 
   hiddeAutoBox() {
