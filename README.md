@@ -1,6 +1,8 @@
+# App Summary
 If user permission, when opened, the website gets the user location and displays the weather.
 background changes accordingly with current time. After sunrise and before sunset it is day. After sunset and before sunrise it is night.
 The application supports two languages Portuguese and English.
+App has a search bar to find cities forecast.
 
 # WeatherApp
 
